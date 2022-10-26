@@ -33,7 +33,7 @@ We need to add `SplunkHttp` appender to these files and ref this Appender in the
 
 Upload these file into Databricks storage `/FileStore/splunk`
 
-## Step 4: Config init_script for cluster
+## Step 4: Config global init script
 
 You need to config Databricks global init script to run the script every time the clusters start to override the log configuration in the cluster.
 
