@@ -47,4 +47,6 @@ Then drag and drop the `init_script.sh` file into the Script area. Set a name an
 
 Set `SPLUNK_HEC_URL` and `SPLUNK_HEC_TOKEN` environment variables in your cluster.
 
+<img src="splunk.png" alt="drawing" width="500"/>
+
 Restart your cluster and check your Splunk web to see the log.
