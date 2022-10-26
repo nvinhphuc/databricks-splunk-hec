@@ -29,7 +29,8 @@ Upload `splunk_dependencies.zip` into Databricks storage at `/FileStore/splunk`
 In Databricks, Log4J configuration files locate in `/databricks/spark/dbconf/log4j/`
 We need to add `SplunkHttp` appender to these files and ref this Appender in the loggers.
 
-Download `init_script.sh` and `splunk_appender.py` from this repo: <https://github.com/nvinhphuc/databricks-splunk-hec>
+***LAZY Shortcut***: Download `init_script.sh` and `splunk_appender.py` from this repo: <https://github.com/nvinhphuc/databricks-splunk-hec>
+
 Upload these file into Databricks storage `/FileStore/splunk`
 
 ## Step 4: Config init_script for cluster
