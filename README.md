@@ -12,11 +12,11 @@ This library <https://github.com/splunk/splunk-library-javalogging> provided Htt
 
 Databricks doesn’t have any Java dependencies manager, so in order to install this libraries, we need to download all the dependencies of this lib and install all to Databricks.
 
-To download all the dependencies, use this pom.xml file <https://gist.github.com/nvinhphuc/09f866699bf813ae1ecf610a31ea7a91> and use this commands:
+To download all the dependencies, use this pom.xml file <https://gist.github.com/nvinhphuc/09f866699bf813ae1ecf610a31ea7a91> and use this command:
 
 `mvn install dependency:copy-dependencies`
 
-Then all the jar dependencies will be downloaded into target/dependencies
+Then all the jar dependencies will be downloaded into `target/dependencies`
 
 Compressed all this dependencies into `splunk_dependencies.zip`
 
