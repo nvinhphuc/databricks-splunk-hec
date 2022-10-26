@@ -41,8 +41,7 @@ Navigate to global init scripts in Admin Console.
 
 <img src="databricks.png" alt="drawing" width="500"/>
 
-Then drag and drop the init_script.sh file into the Script area.
-Set a name and enabled the script.
+Then drag and drop the `init_script.sh` file into the Script area. Set a name and enable the script.
 
 ## Step 5: Configure and restart cluster
 
