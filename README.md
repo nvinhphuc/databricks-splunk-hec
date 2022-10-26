@@ -1,2 +1,25 @@
 # databricks-splunk-hec
+
 Tutorial for push Databricks log to Splunk HEC endpoint
+
+## Configure HEC endpoint in Splunk
+
+You need to create a HEC endpoint in your Splunk system if you don’t have one. We will not dive into this because there is a lot of materials for this in the Internet already: <https://docs.splunk.com/Documentation/Splunk/9.0.1/Data/UsetheHTTPEventCollector>
+
+## Upload splunk-library-javalogging dependencies to Databricks
+
+This library <https://github.com/splunk/splunk-library-javalogging> provided HttpEventCollectorLog4jAppender for Log4J to push log directly to Splunk HEC endpoint.
+
+Databricks doesn’t have any Java dependencies manager, so in order to install this libraries, we need to download all the dependencies of this lib and install all to Databricks.
+
+To download all the dependencies, use this pom.xml file <https://gist.github.com/nvinhphuc/09f866699bf813ae1ecf610a31ea7a91> and use this commands:
+
+`mvn install dependency:copy-dependencies`
+
+Then all the jar dependencies will be downloaded into target/dependencies
+
+Compressed all this dependencies into splunk_dependencies.zip
+
+If you are lazy, just grab this `splunk_dependencies.zip` in this repo <https://github.com/nvinhphuc/databricks-splunk-hec>.
+
+Upload `splunk_dependencies.zip` into Databricks storage at `/FileStore/splunk`
