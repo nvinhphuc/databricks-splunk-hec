@@ -26,7 +26,7 @@ if __name__ == '__main__':
             "name": "splunk",
             "url": "${env:SPLUNK_HEC_URL}",
             "token": "${env:SPLUNK_HEC_TOKEN}",
-            "index": "your_index",
+            "index": "your_splunk_index",
             "host": "databricks",
             "disableCertificateValidation": "true",
             "eventBodySerializer": "HecJsonSerializer"

@@ -1,6 +1,6 @@
 # databricks-splunk-hec
 
-Tutorial for push Databricks log to Splunk HEC endpoint
+Tutorial for pushing Databricks log to Splunk HEC endpoint
 
 ## Configure HEC endpoint in Splunk
 
@@ -18,8 +18,33 @@ To download all the dependencies, use this pom.xml file <https://gist.github.com
 
 Then all the jar dependencies will be downloaded into target/dependencies
 
-Compressed all this dependencies into splunk_dependencies.zip
+Compressed all this dependencies into `splunk_dependencies.zip`
 
-If you are lazy, just grab this `splunk_dependencies.zip` in this repo <https://github.com/nvinhphuc/databricks-splunk-hec>.
+***LAZY Shortcut***: If you are lazy, just grab this `splunk_dependencies.zip` in this repo <https://github.com/nvinhphuc/databricks-splunk-hec>.
 
 Upload `splunk_dependencies.zip` into Databricks storage at `/FileStore/splunk`
+
+## Write script to configure Log4J of Spark
+
+In Databricks, Log4J configuration files locate in `/databricks/spark/dbconf/log4j/`
+We need to add `SplunkHttp` appender to these files and ref this Appender in the loggers.
+
+Download `init_script.sh` and `splunk_appender.py` from this repo: <https://github.com/nvinhphuc/databricks-splunk-hec>
+Upload these file into Databricks storage `/FileStore/splunk`
+
+## Step 4: Config init_script for cluster
+
+You need to config Databricks global init script to run the script every time the clusters start to override the log configuration in the cluster.
+
+Navigate to global init scripts in Admin Console.
+
+<img src="databricks.png" alt="drawing" width="500"/>
+
+Then drag and drop the init_script.sh file into the Script area.
+Set a name and enabled the script.
+
+## Step 5: Configure and restart cluster
+
+Set `SPLUNK_HEC_URL` and `SPLUNK_HEC_TOKEN` environment variables in your cluster.
+
+Restart your cluster and check your Splunk web to see the log.
